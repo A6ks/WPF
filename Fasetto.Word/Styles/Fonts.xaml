@@ -8,7 +8,7 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
     </Style>
 
-    <Style TargetType="{x:Type Control}" x:Key="BaseTextBlockStyle">
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
     </Style>
 
