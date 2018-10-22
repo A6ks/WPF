@@ -74,7 +74,7 @@ namespace Fasetto.Word
         public int  OuterMarginSize
         {
             get
-            {
+            {                
                 return Borderless ? 0 : mOuterMarginSize;
             }
             set
