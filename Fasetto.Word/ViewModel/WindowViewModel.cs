@@ -12,7 +12,7 @@ namespace Fasetto.Word
     /// <summary>
     /// The View Model for the custom flat window
     /// </summary>
-    class WindowViewModel : BaseViewModel
+    public class WindowViewModel : BaseViewModel
     {
         #region Private Member
 
