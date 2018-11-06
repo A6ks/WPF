@@ -63,7 +63,7 @@ namespace Fasetto.Word
         {
             await Task.Delay(500);
 
-            var pass = (parameter as SecureString).Unsecure();
+            var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
         }
     }
 }
