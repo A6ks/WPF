@@ -5,9 +5,9 @@ namespace Fasetto.Word
     /// <summary>
     /// Логика взаимодействия для ChatListUserControl.xaml
     /// </summary>
-    public partial class ChatListUserControl : UserControl
+    public partial class ChatListItemControl : UserControl
     {
-        public ChatListUserControl()
+        public ChatListItemControl()
         {
             InitializeComponent();
         }

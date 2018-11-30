@@ -74,8 +74,11 @@
     <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
     <Compile Include="AttachedProperties\ButtonAttachedProperty.cs" />
     <Compile Include="AttachedProperties\PasswordBoxAttachedProperty.cs" />
-    <Compile Include="Controls\Chat\ChatListUserControl.xaml.cs">
-      <DependentUpon>ChatListUserControl.xaml</DependentUpon>
+    <Compile Include="Controls\Chat\ChatListControl.xaml.cs">
+      <DependentUpon>ChatListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Chat\ChatListItemControl.xaml.cs">
+      <DependentUpon>ChatListItemControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
@@ -97,10 +100,17 @@
     <Compile Include="ViewModel\Base\IHavePassword.cs" />
     <Compile Include="ViewModel\Base\RelayParametrizedCommand.cs" />
     <Compile Include="ViewModel\Base\RelayCommand.cs" />
+    <Compile Include="ViewModel\Chat\ChatListIViewModel.cs" />
+    <Compile Include="ViewModel\Chat\ChatListItemViewModel.cs" />
+    <Compile Include="ViewModel\Chat\Design\ChatListItemDesignModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Compile Include="Window\WindowResizer.cs" />
-    <Page Include="Controls\Chat\ChatListUserControl.xaml">
+    <Page Include="Controls\Chat\ChatListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Chat\ChatListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

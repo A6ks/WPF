@@ -133,7 +133,9 @@
 
             <!-- Side Menu -->
             <local:SideMenuControl>
-                <local:ChatListUserControl Height="60" VerticalAlignment="Top"/>
+                
+                <local:ChatListItemControl Height="60" VerticalAlignment="Top"/>
+                
             </local:SideMenuControl>
             
         </Grid>
