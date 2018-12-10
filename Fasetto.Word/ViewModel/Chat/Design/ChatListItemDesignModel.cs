@@ -21,7 +21,7 @@
         /// </summary>
         public ChatListItemDesignModel()
         {
-            Intials = "LM";
+            Initials = "LM";
             Name = "Luke";
             Message = "This chat app is awasome! I bet it will be fast too";
             ProfilePictureRGB = "3099c5";
