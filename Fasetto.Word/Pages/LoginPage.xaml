@@ -1,7 +1,8 @@
-﻿<local:BasePage x:TypeArguments="local:LoginViewModel" x:Class="Fasetto.Word.LoginPage"
+﻿<local:BasePage x:TypeArguments="core:LoginViewModel" x:Class="Fasetto.Word.LoginPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"     
       xmlns:local="clr-namespace:Fasetto.Word"
+      xmlns:core="clr-namespace:Fasetto.Word.Core;assembly=Fasetto.Word.Core"
       x:Name="Page"> 
 
     <Border>

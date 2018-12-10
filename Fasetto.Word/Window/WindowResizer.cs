@@ -243,9 +243,8 @@ namespace Fasetto.Word
         /// <param name="lParam"></param>
         private void WmGetMinMaxInfo(System.IntPtr hwnd, System.IntPtr lParam)
         {
-            // Get the point position to determine what screen we are on
-            POINT lMousePosition;
-            GetCursorPos(out lMousePosition);
+            // Get the point position to determine what screen we are on           
+            GetCursorPos(out POINT lMousePosition);
 
             // Get the primary monitor at cursor position 0,0
             var lPrimaryScreen = MonitorFromPoint(new POINT(0, 0), MonitorOptions.MONITOR_DEFAULTTOPRIMARY);

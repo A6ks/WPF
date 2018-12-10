@@ -83,7 +83,6 @@
     <Compile Include="Controls\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Expressions\ExpressionHelpers.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\ChatPage.xaml.cs">
       <DependentUpon>ChatPage.xaml</DependentUpon>
@@ -91,24 +90,13 @@
     <Compile Include="Pages\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secure\SecureStringHelpers.cs" />
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
-    <Compile Include="DataModels\ApplicationPage.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValueConverters\StringRGBToBrushConverter.cs" />
     <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="ViewModel\Base\BaseViewModel.cs" />
-    <Compile Include="ViewModel\Base\IHavePassword.cs" />
-    <Compile Include="ViewModel\Base\RelayParametrizedCommand.cs" />
-    <Compile Include="ViewModel\Base\RelayCommand.cs" />
-    <Compile Include="ViewModel\Chat\ChatListIViewModel.cs" />
-    <Compile Include="ViewModel\Chat\ChatListItemViewModel.cs" />
-    <Compile Include="ViewModel\Chat\Design\ChatListDesignModel.cs" />
-    <Compile Include="ViewModel\Chat\Design\ChatListItemDesignModel.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Compile Include="Window\WindowResizer.cs" />
     <Page Include="Controls\Chat\ChatListControl.xaml">
@@ -148,10 +136,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Buttons.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\Windows.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -224,7 +208,12 @@
     <Resource Include="Images\Logo\logo-small.png" />
     <Resource Include="Images\Logo\logo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Fasetto.Word.Core\Fasetto.Word.Core.csproj">
+      <Project>{3d1a0d99-1f7b-43af-9455-5e37e0015f1e}</Project>
+      <Name>Fasetto.Word.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Backgrounds\emoji-background.png" />
   </ItemGroup>

@@ -1,5 +1,4 @@
-﻿using System.Security;
-using System.Windows.Controls;
+﻿using Fasetto.Word.Core;
 
 namespace Fasetto.Word
 {

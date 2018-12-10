@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Fasetto.Word
+namespace Fasetto.Word.Core
 {
     /// <summary>
     /// The View Model for login screen
@@ -89,7 +89,7 @@ namespace Fasetto.Word
         public async Task RegisterAsync()
         {
             //TODO: Go to register page?
-            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
+            //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
 
             await Task.Delay(1);
         }
