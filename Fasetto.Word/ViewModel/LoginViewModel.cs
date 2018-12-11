@@ -43,6 +43,11 @@ namespace Fasetto.Word
         /// </summary>
         public ICommand LoginCommand { get; set; }
 
+        /// <summary>
+        /// The command to register for a new account
+        /// </summary>
+        public ICommand RegisterCommand { get; set; }
+
         #endregion
 
         #region Constructor
@@ -54,7 +59,9 @@ namespace Fasetto.Word
         public LoginViewModel()
         {            
             //Create commands            
-            LoginCommand = new RelayParameterizedCommand(async (parameter) => await Login(parameter));
+            LoginCommand = new RelayParameterizedCommand(async (parameter) => await LoginAsync(parameter));
+
+            RegisterCommand = new RelayCommand(async () => await RegisterAsync());
         }
 
         #endregion
@@ -64,9 +71,9 @@ namespace Fasetto.Word
         /// </summary>
         /// <param name="parameter"></param>
         /// <returns></returns>
-        public async Task Login(object parameter)
+        public async Task LoginAsync(object parameter)
         {
-            await RunCommand(() => this.LoginIsRunning, async () =>
+            await RunCommand(() => LoginIsRunning, async () =>
             {
                 await Task.Delay(5000);
 
@@ -74,6 +81,17 @@ namespace Fasetto.Word
                 var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
 
             });
+        }
+
+        /// <summary>
+        /// Takes the user to the register page
+        /// </summary>       
+        public async Task RegisterAsync()
+        {
+            //TODO: Go to register page?
+            ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Register;
+
+            await Task.Delay(1);
         }
     }
 }
