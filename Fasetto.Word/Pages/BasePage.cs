@@ -107,7 +107,7 @@ namespace Fasetto.Word
                 case PageAnimation.SlideAndFadeInFromRight:
 
                     //Start the animation
-                    await this.SlideAndFadeInFromRight(SlideSeconds);                  
+                    await this.SlideAndFadeInFromRightAsync(SlideSeconds);                  
 
                     break;               
             }
@@ -128,7 +128,7 @@ namespace Fasetto.Word
                 case PageAnimation.SlideAndFadeOutToLeft:
 
                     //Start the animation
-                    await this.SlideAndFadeOutToLeft(SlideSeconds);
+                    await this.SlideAndFadeOutToLeftAsync(SlideSeconds);
 
                     break;
             }

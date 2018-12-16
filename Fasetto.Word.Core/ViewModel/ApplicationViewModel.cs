@@ -15,5 +15,8 @@ namespace Fasetto.Word.Core
         /// The current page of the application
         /// </summary>
         public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+
+        //Try if the side menu should be shown
+        public bool SideMenuVisible { get; set; } = false;
     }
 }
