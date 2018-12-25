@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Fasetto.Word"
+             xmlns:core="clr-namespace:Fasetto.Word.Core;assembly=Fasetto.Word.Core"
              mc:Ignorable="d" d:DesignWidth="300">
-    <Border Padding="5">
+    <Border Padding="5"
+            d:DataContext="{x:Static core:ChatMessageListItemDesignModel.Instance}">
         <Grid>
 
             <!-- Profile picture -->
@@ -15,20 +17,22 @@
                     Height="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"
                     Width="35"
                     Margin="0 7.5 0 7.5"
+                    Visibility="{Binding SentByMe, Converter={local:BooleanToVisibilityConverter}}"
                     Background="Green"
                     BorderBrush="{StaticResource ForegroundLightBrush}"
                     BorderThickness="1"
                     >
-                <TextBlock Text="LM"
+                <TextBlock Text="{Binding Initials}"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Foreground="{StaticResource ForegroundLightBrush}"
-                           FontFamily="{StaticResource LatoRegular}"
+                           FontFamily="{StaticResource LatoRegular}"                           
                            />
             </Border>
 
             <!-- Chat message container -->
-            <Grid Margin="25 0 0 0"  HorizontalAlignment="Left">
+            <Grid Margin="25 0 25 0"  
+                  HorizontalAlignment="{Binding SentByMe, Converter={local:SentByMeToAlignmentConverter}}">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -38,7 +42,7 @@
                 
                 <!-- Speech bubble rectangle -->
                 <Border CornerRadius="10"
-                        Padding="15"                                 
+                        Padding="15"                                   
                         Background="{StaticResource ForegroundLightBrush}"
                         >
                 
@@ -47,7 +51,7 @@
                                TextWrapping="Wrap"
                                FontFamily="{StaticResource LatoRegular}"
                                Foreground="{StaticResource WordDarkBlueBrush}"
-                               Text="This chat app is awesome! When is coming out?"
+                               Text="{Binding Message}"
                                />
 
                 </Border>
@@ -58,15 +62,34 @@
                       Margin="15 -1 15 0"  
                       Panel.ZIndex="1"
                       Fill="{StaticResource ForegroundLightBrush}"
+                      HorizontalAlignment="{Binding SentByMe, Converter={local:SentByMeToAlignmentConverter}}"
                       Data="M 0,0 L 10,10 L 20,0 L 0,0" 
                       />
 
-                <TextBlock Grid.Row="2"
-                           Text="11:54am"
+                <!-- Time containers -->
+                <StackPanel Grid.Row="2"
+                            Orientation="Horizontal">
+
+                    <!-- Sent time -->
+                    <TextBlock
+                           Text="{Binding MessageSentTime, Converter={local:TimeToDisplayTimeConverter}}"
                            Foreground="{StaticResource ForegroundLightBrush}"
                            HorizontalAlignment="Right"
                            FontSize="{StaticResource FontSizeSmall}"
+                           FontFamily="{StaticResource LatoRegular}"
+                           Margin="0 0 15 0"
                            />
+
+                    <!-- Read time -->
+                    <TextBlock
+                           Text="{Binding MessageReadTime, Converter={local:TimeToReadTimeConverter}}"
+                           Foreground="{StaticResource WordDarkBlueBrush}"
+                           HorizontalAlignment="Right"
+                           FontSize="{StaticResource FontSizeSmall}"
+                           FontFamily="{StaticResource LatoRegular}"
+                           />
+
+                </StackPanel>
 
             </Grid>
             
