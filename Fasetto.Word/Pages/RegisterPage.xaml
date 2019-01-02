@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"     
       xmlns:local="clr-namespace:Fasetto.Word"
       xmlns:core="clr-namespace:Fasetto.Word.Core;assembly=Fasetto.Word.Core"
-      x:Name="Register"> 
+      x:Name="Page"> 
 
     <Border>
         <Grid>
@@ -38,13 +38,16 @@
                                        />
 
                             <!-- Email -->
-                            <TextBox Tag="Email" />
+                            <TextBox Text="{Binding Email}" 
+                                     Tag="Email" 
+                                     local:IsFocusedProperty.Value="True"/>
 
                             <!-- Password -->
                             <PasswordBox Name="PasswordText" Tag="Password"  Margin="0 0 0 30"/>
 
-                            <!-- Next button -->
-                            <Button Content="Register"                                       
+                            <!-- Register button -->
+                            <Button Content="Register"  
+                                    IsDefault="True"
                                     local:IsBusyProperty.Value="{Binding RegisterIsRunning}"
                                     Command="{Binding RegisterCommand}" 
                                     CommandParameter="{Binding ElementName=Page}" 

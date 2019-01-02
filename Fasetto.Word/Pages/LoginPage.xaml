@@ -38,13 +38,16 @@
                                        />
 
                             <!-- Email -->
-                            <TextBox Tag="Email" />
+                            <TextBox Text="{Binding Email}" 
+                                     Tag="Email" 
+                                     local:IsFocusedProperty.Value="True"/>
 
                             <!-- Password -->
                             <PasswordBox Name="PasswordText" Tag="Password"  Margin="0 0 0 30"/>
 
-                            <!-- Next button -->
-                            <Button Content="Login"                                       
+                            <!-- Login button -->
+                            <Button Content="Login"
+                                    IsDefault="True"
                                     local:IsBusyProperty.Value="{Binding LoginIsRunning}"
                                     Command="{Binding LoginCommand}" 
                                     CommandParameter="{Binding ElementName=Page}" 
