@@ -85,7 +85,7 @@
                      Tag="Write a message..."
                      FontSize="{StaticResource FontSizeRegular}"
                      BorderThickness="0"
-                     Padding="0 10"
+                     Padding="0 10 10 10"
                      VerticalAlignment="Center"
                      AcceptsReturn="True"
                      AcceptsTab="True"
