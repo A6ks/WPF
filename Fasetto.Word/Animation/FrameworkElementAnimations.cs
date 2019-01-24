@@ -11,43 +11,17 @@ namespace Fasetto.Word
     /// </summary>
     public static class FrameworkElementAnimations
     {
+        #region Slide In From Left
+       
         /// <summary>
-        /// Slide an element in from the right
+        /// Slide an element in from the left
         /// </summary>
         /// <param name="page">The element to animate</param>
         /// <param name="seconds">The time the animation will take</param>
         /// <param name="keepMargin">Whether to keep the element at the same width during animation</param>
         /// <param name="width">The animation width to animate to. If not specified the elements width is used</param>
         /// <returns></returns>
-        public static async Task SlideAndFadeInFromRightAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int width = 0)
-        {
-            //Create the storyboard
-            var sb = new Storyboard();
-
-            //Add slide from right animation
-            sb.AddSlideFromRight(seconds, width == 0 ? element.ActualWidth : width, keepMargin: keepMargin);
-
-            //Add fade in animation
-            sb.AddFadeIn(seconds);
-
-            //Start animating
-            sb.Begin(element);
-
-            //Make page visible
-            element.Visibility = Visibility.Visible;
-
-            await Task.Delay((int)(seconds * 1000));
-        }
-
-        /// <summary>
-        /// Slide an element in from the right
-        /// </summary>
-        /// <param name="page">The element to animate</param>
-        /// <param name="seconds">The time the animation will take</param>
-        /// <param name="keepMargin">Whether to keep the element at the same width during animation</param>
-        /// <param name="width">The animation width to animate to. If not specified the elements width is used</param>
-        /// <returns></returns>
-        public static async Task SlideAndFadeInFromLeftAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int width = 0)
+        public static async Task SlideAndFadeInFromBottomtAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int width = 0)
         {
             //Create the storyboard
             var sb = new Storyboard();
@@ -80,7 +54,7 @@ namespace Fasetto.Word
             //Create the storyboard
             var sb = new Storyboard();
 
-            //Add slide from right animation
+            //Add slide to left animation
             sb.AddSlideToLeft(seconds, width == 0 ? element.ActualWidth : width, keepMargin: keepMargin);
 
             //Add fade in animation
@@ -94,6 +68,10 @@ namespace Fasetto.Word
 
             await Task.Delay((int)(seconds * 1000));
         }
+
+        #endregion
+
+        #region Slide In From Right
 
         /// <summary>
         /// Slide an element out to the right
@@ -122,5 +100,96 @@ namespace Fasetto.Word
 
             await Task.Delay((int)(seconds * 1000));
         }
+
+        /// <summary>
+        /// Slide an element in from the right
+        /// </summary>
+        /// <param name="page">The element to animate</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <param name="keepMargin">Whether to keep the element at the same width during animation</param>
+        /// <param name="width">The animation width to animate to. If not specified the elements width is used</param>
+        /// <returns></returns>
+        public static async Task SlideAndFadeInFromRightAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int width = 0)
+        {
+            //Create the storyboard
+            var sb = new Storyboard();
+
+            //Add slide from right animation
+            sb.AddSlideFromRight(seconds, width == 0 ? element.ActualWidth : width, keepMargin: keepMargin);
+
+            //Add fade in animation
+            sb.AddFadeIn(seconds);
+
+            //Start animating
+            sb.Begin(element);
+
+            //Make page visible
+            element.Visibility = Visibility.Visible;
+
+            await Task.Delay((int)(seconds * 1000));
+        }
+
+        #endregion
+
+        #region Slide In From Bottom
+
+        /// <summary>
+        /// Slide an element in from the right
+        /// </summary>
+        /// <param name="page">The element to animate</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        /// <param name="height">The animation height to animate to. If not specified the elements height is used</param>
+        /// <returns></returns>
+        public static async Task SlideAndFadeInFromBottomAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int height = 0)
+        {
+            //Create the storyboard
+            var sb = new Storyboard();
+
+            //Add slide from bottom animation
+            sb.AddSlideFromBottom(seconds, height == 0 ? element.ActualHeight : height, keepMargin: keepMargin);
+
+            //Add fade in animation
+            sb.AddFadeIn(seconds);
+
+            //Start animating
+            sb.Begin(element);
+
+            //Make page visible
+            element.Visibility = Visibility.Visible;
+
+            await Task.Delay((int)(seconds * 1000));
+        }
+
+        /// <summary>
+        /// Slide an element out to the left
+        /// </summary>
+        /// <param name="element">The element to animate</param>
+        /// <param name="seconds">The time the animation will take</param>
+        /// <param name="keepMargin">Whether to keep the element at the same height during animation</param>
+        /// <param name="height">The animation width to animate to. If not specified the elements height is used</param>
+        /// <returns></returns>
+        public static async Task SlideAndFadeOutToBottomAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int height = 0)
+        {
+            //Create the storyboard
+            var sb = new Storyboard();
+
+            //Add slide to bottom animation
+            sb.AddSlideToBottom(seconds, height == 0 ? element.ActualHeight : height, keepMargin: keepMargin);
+
+            //Add fade in animation
+            sb.AddFadeOut(seconds);
+
+            //Start animating
+            sb.Begin(element);
+
+            //Make page visible
+            element.Visibility = Visibility.Visible;
+
+            await Task.Delay((int)(seconds * 1000));
+        }
+
+        #endregion
+
     }
 }
