@@ -1,14 +1,12 @@
-﻿namespace Fasetto.Word.Core
+﻿using System.Collections.Generic;
+
+namespace Fasetto.Word.Core
 {
     /// <summary>
     /// A view model for any popup menus
     /// </summary>
-    public class ChatAttachmentPopupMenuViewModel : BasePopupMenuViewModel
+    public class ChatAttachmentPopupMenuViewModel : BasePopupViewModel
     {
-        #region Public Properties
-               
-        #endregion
-
         #region Constructor
 
         /// <summary>
@@ -16,8 +14,16 @@
         /// </summary>
         public ChatAttachmentPopupMenuViewModel()
         {
-           
-        }
+            Content = new MenuViewModel
+            {
+                Items = new List<MenuItemViewModel>(new[]
+                {
+                    new MenuItemViewModel { Type = MenuItemType.Header, Text = "Attach a file..." },
+                    new MenuItemViewModel { Text = "From computer", Icon=IconType.File },
+                    new MenuItemViewModel { Text = "From pictures", Icon=IconType.Picture }
+                })
+            };
+        }      
 
         #endregion
     }

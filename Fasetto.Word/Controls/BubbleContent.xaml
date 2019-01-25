@@ -28,13 +28,8 @@
                 <DropShadowEffect BlurRadius="4" ShadowDepth="2" Color="{StaticResource WordLightBlue}" />
             </Border.Effect>
 
-            <!-- Message Text -->
-            <TextBlock VerticalAlignment="Center"
-                               TextWrapping="Wrap"
-                               FontFamily="{StaticResource LatoRegular}"
-                               Foreground="{StaticResource WordDarkBlueBrush}"
-                               Text="Test"
-                               />
+            <!-- Message text -->
+            <ContentControl Content="{Binding Converter={local:PopupContentConverter}}" />
 
         </Border>
 

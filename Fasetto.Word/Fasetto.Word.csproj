@@ -94,6 +94,9 @@
     <Compile Include="Controls\Chat\ChatMessage\ChatMessageListItemControl.xaml.cs">
       <DependentUpon>ChatMessageListItemControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Menu\VerticalMenu.xaml.cs">
+      <DependentUpon>VerticalMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PageHost.xaml.cs">
       <DependentUpon>PageHost.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,7 @@
     <Compile Include="Pages\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValueConverters\PopupContentConverter.cs" />
     <Compile Include="ValueConverters\SentByMeToAlignmentConverter.cs" />
     <Compile Include="ValueConverters\SentByMeToBackgroundConverter.cs" />
     <Compile Include="ValueConverters\HorizontalAlignmentConverter.cs" />
@@ -140,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Chat\ChatMessage\ChatMessageListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Menu\VerticalMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
