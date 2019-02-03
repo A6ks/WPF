@@ -110,6 +110,8 @@
     <Compile Include="Pages\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValueConverters\IconTypeToFontAwesomeConverter.cs" />
+    <Compile Include="ValueConverters\MenuItemTypeToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\PopupContentConverter.cs" />
     <Compile Include="ValueConverters\SentByMeToAlignmentConverter.cs" />
     <Compile Include="ValueConverters\SentByMeToBackgroundConverter.cs" />

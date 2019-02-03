@@ -15,11 +15,76 @@
             <DataTemplate>
 
                 <Grid>
+
+                    <!-- Header line -->
+                    <Border Height="0.5" 
+                                Background="{StaticResource ForegroundDarkBrush}"
+                                />
+
+                    <!-- Header -->
+                    <Grid Visibility="{Binding Type, Converter={local:MenuItemTypeToVisibilityConverter}, ConverterParameter=Header}">
+                        <TextBlock Text="{Binding Text}"
+                                   FontFamily="{StaticResource LatoRegular}"
+                                   FontSize="{StaticResource FontSizeSmall}"
+                                   Padding="0 5 10 5"
+                                   Background="{StaticResource ForegroundLightBrush}"
+                                   HorizontalAlignment="Left"
+                                   Foreground="{StaticResource ForegroundDarkBrush}"
+                                   />                      
+                        
+                    </Grid>
                     
                     <!-- Menu Item -->
                     <Border Background="{StaticResource ForegroundLightBrush}"
-                            CornerRadius="8">
+                            CornerRadius="8"
+                            Padding="5"
+                            Visibility="{Binding Type, Converter={local:MenuItemTypeToVisibilityConverter}, ConverterParameter=TextAndIcon}">
 
+                        <Border.Triggers>
+                            <!-- hover over blue -->
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource WordBlue}"
+                                                        Duration="0:0:0"
+                                                        Storyboard.TargetProperty="Background.Color"
+                                                        />
+                                        <ColorAnimation To="{StaticResource ForegroundLight}"
+                                                        Duration="0:0:0"
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="icon"
+                                                        />
+                                        <ColorAnimation To="{StaticResource ForegroundLight}"
+                                                        Duration="0:0:0"
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="text"
+                                                        />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <!-- hover over revert -->
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation From="{StaticResource WordBlue}"
+                                                        Duration="0:0:0"
+                                                        Storyboard.TargetProperty="Background.Color"
+                                                        />
+                                        <ColorAnimation From="{StaticResource ForegroundLight}"
+                                                        Duration="0:0:0"                                                        
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="icon"
+                                                        />
+                                        <ColorAnimation From="{StaticResource ForegroundLight}"
+                                                        Duration="0:0:0"
+                                                        Storyboard.TargetProperty="Foreground.Color"
+                                                        Storyboard.TargetName="text"
+                                                        />                                        
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Border.Triggers>
+                        
                         <!-- Grid container for text and icon -->
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -34,7 +99,7 @@
                                        Padding="5"
                                        VerticalAlignment="Center"
                                        FontFamily="{StaticResource FontAwesome}"
-                                       Text="{StaticResource FontAwesomeChartIcon}"
+                                       Text="{Binding Icon, Converter={local:IconTypeToFontAwesomeConverter}}"
                                        Foreground="{StaticResource ForegroundDarkBrush}"
                                        />
                             
@@ -43,7 +108,10 @@
                                        Grid.Column="1"
                                        Margin="5 0 5 0"
                                        VerticalAlignment="Center"
-                                       Text="{Binding Text}" />
+                                       Text="{Binding Text}" 
+                                       FontFamily="{StaticResource LatoRegular}"
+                                       Foreground="{StaticResource ForegroundVeryDarkBrush}"
+                                       />
 
                         </Grid>
                         
