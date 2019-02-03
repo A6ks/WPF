@@ -133,6 +133,7 @@
 
                 <Button Content="Send"                            
                         Padding="8"
+                        Command="{Binding SendCommand}"
                         FontSize="{StaticResource FontSizeRegular}"
                         Background="{StaticResource WordGreenBrush}"
                         />
