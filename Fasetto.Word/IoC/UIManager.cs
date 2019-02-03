@@ -33,7 +33,7 @@ namespace Fasetto.Word
                         // Le caller know we finished
                         tcs.TrySetResult(true);
                     }
-                })
+                });
             });
 
             return tcs.Task;
