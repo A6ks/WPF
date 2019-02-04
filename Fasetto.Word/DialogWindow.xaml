@@ -128,7 +128,7 @@
     <Border Background="{StaticResource ForegroundLightBrush}"
             Padding="10">
 
-        <TextBlock Text="Test" />
+        <ContentControl Content="{Binding Content}" />
 
     </Border>
 </Window>
