@@ -26,7 +26,7 @@ namespace Fasetto.Word
         /// <summary>
         /// Close this dialog
         /// </summary>
-        public ICommand GetCommand { get; private set; }
+        public ICommand CloseCommand { get; private set; }
 
         #endregion
 
@@ -67,6 +67,9 @@ namespace Fasetto.Word
                 //Create a new dialog window
                 mDialogWindow = new DialogWindow();
                 mDialogWindow.ViewModel = new DialogWindowViewModel(mDialogWindow);
+
+                // Create close command
+                CloseCommand = new RelayCommand(() => mDialogWindow.Close());
             }
         }
 
