@@ -21,7 +21,7 @@ namespace Fasetto.Word
         /// <param name="keepMargin">Whether to keep the element at the same width during animation</param>
         /// <param name="width">The animation width to animate to. If not specified the elements width is used</param>
         /// <returns></returns>
-        public static async Task SlideAndFadeInFromBottomtAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int width = 0)
+        public static async Task SlideAndFadeInFromLeftAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int width = 0)
         {
             //Create the storyboard
             var sb = new Storyboard();
@@ -36,7 +36,8 @@ namespace Fasetto.Word
             sb.Begin(element);
 
             //Make page visible
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0)
+                element.Visibility = Visibility.Visible;
 
             await Task.Delay((int)(seconds * 1000));
         }
@@ -64,7 +65,8 @@ namespace Fasetto.Word
             sb.Begin(element);
 
             //Make page visible
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0)
+                element.Visibility = Visibility.Visible;
 
             await Task.Delay((int)(seconds * 1000));
         }
@@ -96,9 +98,13 @@ namespace Fasetto.Word
             sb.Begin(element);
 
             //Make page visible
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0)
+                element.Visibility = Visibility.Visible;
 
             await Task.Delay((int)(seconds * 1000));
+
+            //Make element invisible
+            element.Visibility = Visibility.Hidden;
         }
 
         /// <summary>
@@ -124,7 +130,8 @@ namespace Fasetto.Word
             sb.Begin(element);
 
             //Make page visible
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0)
+                element.Visibility = Visibility.Visible;
 
             await Task.Delay((int)(seconds * 1000));
         }
@@ -156,9 +163,10 @@ namespace Fasetto.Word
             sb.Begin(element);
 
             //Make page visible
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0)
+                element.Visibility = Visibility.Visible;
 
-            await Task.Delay((int)(seconds * 1000));
+            await Task.Delay((int)(seconds * 1000));                       
         }
 
         /// <summary>
@@ -170,7 +178,7 @@ namespace Fasetto.Word
         /// <param name="height">The animation width to animate to. If not specified the elements height is used</param>
         /// <returns></returns>
         public static async Task SlideAndFadeOutToBottomAsync(this FrameworkElement element, float seconds = 0.3f, bool keepMargin = true, int height = 0)
-        {
+        {      
             //Create the storyboard
             var sb = new Storyboard();
 
@@ -183,10 +191,14 @@ namespace Fasetto.Word
             //Start animating
             sb.Begin(element);
 
-            //Make page visible
-            element.Visibility = Visibility.Visible;
+            //Make page visible only if we are animating
+            if (seconds != 0)
+                element.Visibility = Visibility.Visible;
 
             await Task.Delay((int)(seconds * 1000));
+
+            //Make element invisible
+            element.Visibility = Visibility.Hidden;
         }
 
         #endregion
@@ -211,7 +223,8 @@ namespace Fasetto.Word
             sb.Begin(element);
 
             //Make page visible
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0)
+                element.Visibility = Visibility.Visible;
 
             await Task.Delay((int)(seconds * 1000));
         }
@@ -234,7 +247,8 @@ namespace Fasetto.Word
             sb.Begin(element);
 
             //Make page visible
-            element.Visibility = Visibility.Visible;
+            if (seconds != 0)
+                element.Visibility = Visibility.Visible;
 
             await Task.Delay((int)(seconds * 1000));
 

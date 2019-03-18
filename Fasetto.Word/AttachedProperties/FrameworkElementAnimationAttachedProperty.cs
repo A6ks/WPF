@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
 
 namespace Fasetto.Word
 {
@@ -16,6 +17,16 @@ namespace Fasetto.Word
         /// A flag indicating if this is the first time this property has been loaded
         /// </summary>
         public bool FirstLoad { get; set; } = true;
+               
+        #endregion
+
+        #region Protected Properties
+
+        /// <summary>
+        /// True if this is the very first time the value has been updated
+        /// Used to make sure we run the logic at least onece during first load
+        /// </summary>
+        protected bool mFirstFire = true;
 
         #endregion
 
@@ -26,15 +37,29 @@ namespace Fasetto.Word
                 return;
 
             // Don't fire if the value doesn't change
-            if (sender.GetValue(ValueProperty) == value && !FirstLoad)
+            if ((bool)sender.GetValue(ValueProperty) == (bool)value && !mFirstFire)
                 return;
-            
+
+            // No longer first fire
+            mFirstFire = false;
+
             // On first load...
             if(FirstLoad)
             {
+                // Start off hidden before we dicide how to animate 
+                // if we are to be animated out initially
+                if(!(bool)value)
+                    element.Visibility = Visibility.Hidden;
+
+                // Create a single self-unhookable event
+                // for the element Loaded event
                 RoutedEventHandler onLoaded = null;
-                onLoaded = (ss, ee) =>
+                onLoaded = async (ss, ee) =>
                 {
+                    // Slight delay after load is needed for some elements to get laid out
+                    // and their width/heights correctly calculated
+                    await Task.Delay(5);
+
                     // Unhook ourselves
                     element.Loaded -= onLoaded;
 
@@ -71,7 +96,7 @@ namespace Fasetto.Word
         {
             if (value)
                 //Animate in
-                await element.SlideAndFadeInFromBottomtAsync(FirstLoad ? 0 : 0.3f, keepMargin: false);
+                await element.SlideAndFadeInFromLeftAsync(FirstLoad ? 0 : 0.3f, keepMargin: false);
             else
                 await element.SlideAndFadeOutToLeftAsync(FirstLoad ? 0 : 0.3f, keepMargin: false);
 
@@ -90,7 +115,25 @@ namespace Fasetto.Word
                 //Animate in
                 await element.SlideAndFadeInFromBottomAsync(FirstLoad ? 0 : 0.3f, keepMargin: false);
             else
-                await element.SlideAndFadeOutToBottomAsync(FirstLoad ? 0 : 0.3f, keepMargin: false);
+                await element.SlideAndFadeOutToBottomAsync(FirstLoad ? 0 : .3f, keepMargin: false);
+
+        }
+    }
+
+    /// <summary>
+    /// Animates a framework element sliding up from the bottom on show
+    /// and sliding out to the buttom on hide
+    /// NOTES: Keep the margin
+    /// </summary>
+    public class AnimateSlideInFromBottomMarginProperty : AnamateBaseProperty<AnimateSlideInFromBottomMarginProperty>
+    {
+        protected override async void DoAnimation(FrameworkElement element, bool value)
+        {
+            if (value)
+                //Animate in
+                await element.SlideAndFadeInFromBottomAsync(FirstLoad ? 0 : 0.3f);
+            else
+                await element.SlideAndFadeOutToBottomAsync(FirstLoad ? 0 : .3f);
 
         }
     }

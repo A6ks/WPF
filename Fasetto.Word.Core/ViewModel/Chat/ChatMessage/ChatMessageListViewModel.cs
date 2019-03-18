@@ -92,8 +92,6 @@ namespace Fasetto.Word.Core
                 Message = "Thank you for writting a nice message",
                 OkText = "OK",
             });
-
-            var a = true;
         }
 
         /// <summary>

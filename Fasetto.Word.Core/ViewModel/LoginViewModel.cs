@@ -81,7 +81,7 @@ namespace Fasetto.Word.Core
                 var pass = (parameter as IHavePassword).SecurePassword.Unsecure();
 
                 //Test
-                IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Chat);
+                IoC.Application.GoToPage(ApplicationPage.Chat);
             });
         }
 
@@ -91,7 +91,7 @@ namespace Fasetto.Word.Core
         public async Task RegisterAsync()
         {
             //Go to register page
-            IoC.Get<ApplicationViewModel>().GoToPage(ApplicationPage.Register);
+            IoC.Application.GoToPage(ApplicationPage.Register);
             
             await Task.Delay(1);
         }
